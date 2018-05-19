@@ -15,7 +15,7 @@ body{
 h1 {
   color: var(--dark-blue);
   font-size: 3rem;
-
+  
 }
 
 .score > p {
@@ -39,15 +39,15 @@ h1 {
 }
 
 .player1 {
- background-color: rgb(75, 93,	116);
- width: 100px;
- height: 100px; 
+  background-color: rgb(75, 93,	116);
+  width: 100px;
+  height: 100px; 
 }
 
 .player2 {
- background-color: rgb(182,	69,	26)	;
- width: 100px;
- height: 100px; 
+  background-color: rgb(182,	69,	26)	;
+  width: 100px;
+  height: 100px; 
 }
 
 .score {
@@ -107,8 +107,8 @@ h1 {
 }
 
 .reset-btn > p {
-    position: relative;
-    top: 50%;
+  position: relative;
+  top: 50%;
   transform: translateY(-50%);
 }
 
@@ -116,28 +116,29 @@ h1 {
   position: relative;
   display: block;
 }
-.p1Btn {
-  height: 50px;
+
+.mobile-btn {
+  background-color: #fff;
+  border-radius: 0px;
+  box-shadow: none;
+  height: 100px;
   position: relative;
   touch-action: none;
-  right: 25%;
   top: 20rem;
-  width: 125px;
+  width: 175px;
+}
+.p1Btn {
+  right: 22%;
 }
 .p2Btn {
-  height: 50px;
-  position: relative;
-  touch-action: none;
-  left: 25%;
-  top: 20rem;
-  width: 125px;
+  left: 22%;
 }
 
 @media screen and (min-width: 599px){
-    .p1Btn{
+  .p1Btn{
     display: none;
   }
-
+  
   .p2Btn{
     display: none;
   }
