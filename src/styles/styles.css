@@ -111,3 +111,32 @@ h1 {
     top: 50%;
   transform: translateY(-50%);
 }
+
+.mobile-controls{
+  position: relative;
+  display: block;
+}
+.p1Btn {
+  height: 50px;
+  position: relative;
+  right: 25%;
+  top: 20rem;
+  width: 125px;
+}
+.p2Btn {
+  height: 50px;
+  position: relative;
+  left: 25%;
+  top: 20rem;
+  width: 125px;
+}
+
+@media screen and (min-width: 599px){
+    .p1Btn{
+    display: none;
+  }
+
+  .p2Btn{
+    display: none;
+  }
+}

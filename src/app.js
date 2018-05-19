@@ -13,6 +13,8 @@
 const player1 = document.querySelector('.player1'); 
 const player2 = document.querySelector('.player2'); 
 const finishLine = document.querySelector('.finish-line');
+const p1Btn = document.querySelector('.p1Btn');
+const p2Btn = document.querySelector('.p2Btn');
 const resetBtn = document.querySelector('.reset-btn'); 
 const p1scoreDisplay = document.getElementById("p1score");
 const p2scoreDisplay = document.getElementById("p2score");
@@ -31,9 +33,18 @@ function resetScores(){
   player1Count = 0;
   player2Count = 0;
   updateScores();
+  resetPlayerPositions();
+}
+
+function resetPlayerPositions(){
+  player1.style.left = 0 + "px";
+  player2.style.left = 0 + "px";
 }
 
 updateScores();
+
+p1Btn.addEventListener('click', (e) => moveRight(player1));
+p2Btn.addEventListener('click', (e) => moveRight(player2));
 
 resetBtn.addEventListener('click', (e) => resetScores());
 
