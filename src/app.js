@@ -12,7 +12,8 @@
 
 const player1 = document.querySelector('.player1'); 
 const player2 = document.querySelector('.player2'); 
-const finishLine = document.querySelector('.finish-line'); 
+const finishLine = document.querySelector('.finish-line');
+const resetBtn = document.querySelector('.reset-btn'); 
 const p1scoreDisplay = document.getElementById("p1score");
 const p2scoreDisplay = document.getElementById("p2score");
 let player1Count = 0;
@@ -21,11 +22,20 @@ let player2Count = 0;
 
 // Display scores
 function updateScores(){
-  p1scoreDisplay.innerText = player1Count;
+  p1scoreDisplay.textContent = player1Count;
   p2scoreDisplay.textContent = player2Count;
 }
 
+// Reset scores
+function resetScores(){
+  player1Count = 0;
+  player2Count = 0;
+  updateScores();
+}
+
 updateScores();
+
+resetBtn.addEventListener('click', (e) => resetScores());
 
 let down = false;
 document.addEventListener('keydown', (e) => {

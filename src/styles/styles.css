@@ -96,8 +96,18 @@ h1 {
 
 .reset-btn {
   color: white;
+  cursor: pointer;
   background-color: var(--dark-blue);
   width: auto;
   height: 3rem;
-  justify-content: center;
+}
+
+.reset-btn:hover {
+  filter: brightness(90%);
+}
+
+.reset-btn > p {
+    position: relative;
+    top: 50%;
+  transform: translateY(-50%);
 }
