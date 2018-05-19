@@ -119,6 +119,7 @@ h1 {
 .p1Btn {
   height: 50px;
   position: relative;
+  touch-action: none;
   right: 25%;
   top: 20rem;
   width: 125px;
@@ -126,6 +127,7 @@ h1 {
 .p2Btn {
   height: 50px;
   position: relative;
+  touch-action: none;
   left: 25%;
   top: 20rem;
   width: 125px;

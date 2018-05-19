@@ -46,15 +46,15 @@ updateScores();
 p1Btn.addEventListener('click', (e) => moveRight(player1));
 p2Btn.addEventListener('click', (e) => moveRight(player2));
 
-p1Btn.addEventListener('touchend', (e) => {
-  e.preventDefault();
-  this.click();
-});
+// p1Btn.addEventListener('touchend', (e) => {
+//   e.preventDefault();
+//   e.target.click();
+// });
 
-p2Btn.addEventListener('touchend', (e) => {
-  e.preventDefault();
-  this.click();
-});
+// p2Btn.addEventListener('touchend', (e) => {
+//   e.preventDefault();
+//   this.click();
+// });
 
 resetBtn.addEventListener('click', (e) => resetScores());
 
