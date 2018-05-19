@@ -56,7 +56,6 @@ p2Btn.addEventListener('touchend', (e) => {
   this.click();
 });
 
-
 resetBtn.addEventListener('click', (e) => resetScores());
 
 let down = false;
