@@ -123,15 +123,16 @@ h1 {
   box-shadow: none;
   height: 100px;
   position: relative;
-  touch-action: none;
   top: 20rem;
-  width: 175px;
+  width: 200px;
 }
 .p1Btn {
-  right: 22%;
+  right: 9%;
+  touch-action: none;
 }
 .p2Btn {
-  left: 22%;
+  left: 9%;
+  touch-action: none;
 }
 
 @media screen and (min-width: 599px){
