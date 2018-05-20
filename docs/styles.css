@@ -130,9 +130,11 @@ h1 {
 }
 .p1Btn {
   right: 9%;
+   touch-action: manipulation;
 }
 .p2Btn {
   left: 9%;
+   touch-action: manipulation;
 }
 
 @media screen and (min-width: 599px){
