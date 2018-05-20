@@ -43,9 +43,9 @@ function resetPlayerPositions(){
 
 updateScores();
 
-window.addEventListener("touchstart", preventZoom);
+p1Btn.addEventListener("touchstart", preventZoom);
 
-p1Btn.addEventListener('click', (e) => moveRight(player1));
+// p1Btn.addEventListener('click', (e) => moveRight(player1));
 p2Btn.addEventListener('click', (e) => moveRight(player2));
 
 function preventZoom(e) {
@@ -59,6 +59,7 @@ function preventZoom(e) {
 
   e.preventDefault();
   e.target.click();
+  moveRight(player1);
 }
 
 
