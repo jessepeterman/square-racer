@@ -60,8 +60,8 @@ function set_handlers(name) {
   var el = document.querySelector(name);
   el.ontouchstart = start_handler;
   // Use same handler for touchcancel and touchend
-  // el.ontouchcancel = end_handler;
-  // el.ontouchend = end_handler;
+  el.ontouchcancel = end_handler;
+  el.ontouchend = end_handler;
 }
 
 function start_handler(ev) {
@@ -73,10 +73,10 @@ function start_handler(ev) {
   }
   if (logEvents) log("touchStart", ev, true);
   if (ev.target.className === 'mobile-btn p1Btn'){
-    moveRight(player1);
+    moveRight(ev, player1);
   }
   if (ev.target.className === 'mobile-btn p2Btn') {
-    moveRight(player2);
+    moveRight(ev, player2);
   }
 
   // update_background(ev);
@@ -161,8 +161,8 @@ function moveLeft(player){
   }
 }
 
-const moveRight = function(player){
-  
+const moveRight = function(e, player){
+  console.log(player);
   if ((parseInt(player.style.left)) <= parseInt(finishLine.style.left)-95) {
     player.style.left = parseInt(player.style.left) + 30 + "px";
     if ((parseInt(player.style.left)) >= parseInt(finishLine.style.left) - 95) {
