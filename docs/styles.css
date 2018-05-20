@@ -71,15 +71,8 @@ h1 {
   grid-column: 3;
   grid-row: 2
 } */
+/* 
 
-#arrows-vertical {
-  grid-column: 2;
-  grid-row: 2
-  /* top: 2rem; */
-  /* position: absolute; */
-  width: 1px;
-  word-wrap: break-word;
-}
 
 #p1score{
   /* display: block; */
@@ -111,7 +104,15 @@ h1 {
   top: 50%;
   transform: translateY(-50%);
 }
+.controls1 {
+  dipslay: block;
+}
 
+@media screen and (max-width: 599px){
+  .controls1{
+    display: none;
+  }
+}
 .mobile-controls{
   position: relative;
   display: block;
@@ -121,6 +122,7 @@ h1 {
   background-color: #fff;
   border-radius: 0px;
   box-shadow: none;
+  font-size: 2.5rem;
   height: 100px;
   position: relative;
   top: 20rem;
@@ -128,11 +130,9 @@ h1 {
 }
 .p1Btn {
   right: 9%;
-  touch-action: none;
 }
 .p2Btn {
   left: 9%;
-  touch-action: none;
 }
 
 @media screen and (min-width: 599px){
