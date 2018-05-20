@@ -21,7 +21,6 @@ const p2scoreDisplay = document.getElementById("p2score");
 let player1Count = 0;
 let player2Count = 0;
 
-
 // Display scores
 function updateScores(){
   p1scoreDisplay.textContent = player1Count;
@@ -64,19 +63,19 @@ function set_handlers(name) {
   el.ontouchend = end_handler;
 }
 
-function start_handler(ev) {
-  ev.preventDefault();
-  if (ev.targetTouches.length == 2) {
-    for (var i = 0; i < ev.targetTouches.length; i++) {
-      tpCache.push(ev.targetTouches[i]);
+function start_handler(e) {
+  e.preventDefault();
+  if (e.targetTouches.length == 2) {
+    for (var i = 0; i < e.targetTouches.length; i++) {
+      tpCache.push(e.targetTouches[i]);
     }
   }
-  if (logEvents) log("touchStart", ev, true);
-  if (ev.target.className === 'mobile-btn p1Btn'){
-    moveRight(ev, player1);
+  if (logEvents) log("touchStart", e, true);
+  if (e.target.className === 'mobile-btn p1Btn'){
+    moveRight(e, player1);
   }
-  if (ev.target.className === 'mobile-btn p2Btn') {
-    moveRight(ev, player2);
+  if (e.target.className === 'mobile-btn p2Btn') {
+    moveRight(e, player2);
   }
 
   // update_background(ev);
@@ -120,7 +119,7 @@ document.addEventListener('keydown', (e) => {
     break;
     
     case 39:
-      moveRight(player1);
+      moveRight(e, player1);
     break;
     
     case 38:
@@ -137,7 +136,7 @@ document.addEventListener('keydown', (e) => {
       break;
 
     case 68:
-      moveRight(player2);
+      moveRight(e, player2);
       break;
 
     case 87:
