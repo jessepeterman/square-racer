@@ -43,12 +43,12 @@ function resetPlayerPositions(){
 
 updateScores();
 
-// p1Btn.addEventListener('click', (e) => moveRight(player1));
-p1Btn.addEventListener('touchstart', (e, player1) => preventZoom);
-// p2Btn.addEventListener('click', (e) => moveRight(player2));
-p2Btn.addEventListener('touchstart', (e, player2) => preventZoom);
+window.addEventListener("touchstart", preventZoom);
 
-function preventZoom(e, player) {
+p1Btn.addEventListener('click', (e) => moveRight(player1));
+p2Btn.addEventListener('click', (e) => moveRight(player2));
+
+function preventZoom(e) {
   var t2 = e.timeStamp;
   var t1 = e.currentTarget.dataset.lastTouch || t2;
   var dt = t2 - t1;
@@ -58,7 +58,7 @@ function preventZoom(e, player) {
   if (!dt || dt > 500 || fingers > 1) return; // not double-tap
 
   e.preventDefault();
-  e.target.click((movePlayer(player)));
+  e.target.click();
 }
 
 
