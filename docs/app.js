@@ -60,8 +60,8 @@ function set_handlers(name) {
   var el = document.querySelector(name);
   el.ontouchstart = start_handler;
   // Use same handler for touchcancel and touchend
-  el.ontouchcancel = end_handler;
-  el.ontouchend = end_handler;
+  // el.ontouchcancel = end_handler;
+  // el.ontouchend = end_handler;
 }
 
 function start_handler(ev) {
@@ -73,33 +73,29 @@ function start_handler(ev) {
   }
   if (logEvents) log("touchStart", ev, true);
   if (ev.target.className === 'mobile-btn p1Btn'){
-  
-    if ((parseInt(player1.style.left)) <= parseInt(finishLine.style.left) - 95) {
-      player1.style.left = parseInt(player1.style.left) + 30 + "px";
-      if ((parseInt(player1.style.left)) >= parseInt(finishLine.style.left) - 95) {
-        setTimeout(youWin, 250, player1);
-      }
-    
+    moveRight(player1);
   }
   if (ev.target.className === 'mobile-btn p2Btn') {
-
-    if ((parseInt(player2.style.left)) <= parseInt(finishLine.style.left) - 95) {
-      player2.style.left = parseInt(player2.style.left) + 30 + "px";
-      if ((parseInt(player2.style.left)) >= parseInt(finishLine.style.left) - 95) {
-        setTimeout(youWin, 250, player2);
-      }
-    }
-
-    // console.log("moved player 2!");
+    moveRight(player2);
   }
 
   // update_background(ev);
 }
 
+const youWin = function(player) {
+  alert("you win!");
+  player1.style.left = 0 + "px";
+  player2.style.left = 0 + "px";
+  player.className === 'player1' ? player1Count += 1 : player2Count += 1;
+  updateScores();
+}
+
 function end_handler(ev) {
   ev.preventDefault();
   if (logEvents) log(ev.type, ev, false);
-
+  if (ev.targetTouches.length == 0) {
+    
+  }
 }
 
 function init() {
@@ -165,29 +161,15 @@ function moveLeft(player){
   }
 }
 
-function moveRight(e, player){
-  console.log(e);
-
-  console.log(parseInt(finishLine.style.left));
+const moveRight = function(player){
   
- 
   if ((parseInt(player.style.left)) <= parseInt(finishLine.style.left)-95) {
     player.style.left = parseInt(player.style.left) + 30 + "px";
     if ((parseInt(player.style.left)) >= parseInt(finishLine.style.left) - 95) {
       setTimeout(youWin, 250, player);
     }
-  }else {
-    
   }
 
-function youWin(player){
-  alert("you win!");
-  player1.style.left = 0 + "px";
-  player2.style.left = 0 + "px";
-  player.className === 'player1' ? player1Count += 1: player2Count += 1;
-  updateScores();  
-}
-  
 }
 function moveUp(player){
   if ((parseInt(player.style.top)) > 0) {
