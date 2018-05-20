@@ -60,13 +60,12 @@ function set_handlers(name) {
   var el = document.querySelector(name);
   el.ontouchstart = start_handler;
   // Use same handler for touchcancel and touchend
-  // el.ontouchcancel = end_handler;
-  // el.ontouchend = end_handler;
+  el.ontouchcancel = end_handler;
+  el.ontouchend = end_handler;
 }
 
 function start_handler(ev) {
   ev.preventDefault();
-  console.log(ev.target.className);
   if (ev.targetTouches.length == 2) {
     for (var i = 0; i < ev.targetTouches.length; i++) {
       tpCache.push(ev.targetTouches[i]);
@@ -80,13 +79,7 @@ function start_handler(ev) {
       if ((parseInt(player1.style.left)) >= parseInt(finishLine.style.left) - 95) {
         setTimeout(youWin, 250, player1);
       }
-    }
-
-
-
-
-
-    // console.log("moved player 1!");
+    
   }
   if (ev.target.className === 'mobile-btn p2Btn') {
 
@@ -103,15 +96,11 @@ function start_handler(ev) {
   // update_background(ev);
 }
 
-// function end_handler(ev) {
-//   ev.preventDefault();
-//   if (logEvents) log(ev.type, ev, false);
-//   if (ev.targetTouches.length == 0) {
-//     // Restore background and border to original values
-//     ev.target.style.background = "white";
-//     ev.target.style.border = "1px solid black";
-//   }
-// }
+function end_handler(ev) {
+  ev.preventDefault();
+  if (logEvents) log(ev.type, ev, false);
+
+}
 
 function init() {
   set_handlers(".p1Btn");
