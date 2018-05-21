@@ -1,14 +1,5 @@
-
-
-// player1.addEventListener('keydown', (e) => {
-//   player1.style.left = parseInt(player1.style.left) + 5 + 'px';
-//   console.log(e.key);
-// });
-
-// document.addEventListener('keydown', (e) => {
-//   moveRight();
-//   // e.preventDefault();
-// });
+// *** things to work on
+// 
 
 const player1 = document.querySelector('.player1'); 
 const player2 = document.querySelector('.player2'); 
@@ -48,15 +39,14 @@ p2Btn.addEventListener('click', (e) => moveRight(e, player2));
 // enable mutli-touch button presses for mobile devices
 
 // Log events flag
-var logEvents = false;
+let logEvents = false;
 
 // Touch Point cache
-var tpCache = new Array();
+let tpCache = new Array();
 
 function set_handlers(name) {
-  console.log("touch event");
   // Install event handlers for the given element
-  var el = document.querySelector(name);
+  let el = document.querySelector(name);
   el.ontouchstart = start_handler;
   // Use same handler for touchcancel and touchend
   el.ontouchcancel = end_handler;
@@ -109,17 +99,17 @@ resetBtn.addEventListener('click', (e) => resetScores());
 
 let down = false;
 document.addEventListener('keydown', (e) => {
-  e.preventDefault();
   if(down) return;
   down = true;
-  console.log(e.keyCode);
   switch (e.keyCode) {
     case 37:
       setTimeout(moveLeft(player1), 500);
     break;
     
     case 39:
+      e.preventDefault();  
       moveRight(e, player1);
+      
     break;
     
     case 38:
@@ -136,7 +126,9 @@ document.addEventListener('keydown', (e) => {
       break;
 
     case 68:
+      e.preventDefault();  
       moveRight(e, player2);
+      
       break;
 
     case 87:
@@ -161,7 +153,7 @@ function moveLeft(player){
 }
 
 const moveRight = function(e, player){
-  console.log(player);
+  // e.preventDefault();
   if ((parseInt(player.style.left)) <= parseInt(finishLine.style.left)-95) {
     player.style.left = parseInt(player.style.left) + 30 + "px";
     if ((parseInt(player.style.left)) >= parseInt(finishLine.style.left) - 95) {
